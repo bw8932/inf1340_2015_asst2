@@ -11,7 +11,7 @@ __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
-#Create a function.
+#Create a function..
 def pig_latinify(word):
     #If a word begins with a vowel, append "yay" to the end of the word.
     if word[0].upper() in ["A", "E", "I", "O", "U"]:
