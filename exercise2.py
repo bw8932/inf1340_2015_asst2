@@ -55,4 +55,4 @@ def find_string_2():
         print substring, "found at", index
 find_string_2()
 
-#For some reason the index is off by +1, if the actual position is 0 it shows 1, if 6 then 7. Need to fix.
+#For some reason the index is off by +1, if the actual position is 0 it shows 1, if 6 then 7. Need to fix..
