@@ -11,30 +11,36 @@ __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
-#Create a function.
 def pig_latinify(word):
-    #If a word begins with a vowel, append "yay" to the end of the word.
-    if word[0].upper() in ["A", "E", "I", "O", "U"]:
-        print word[0:] + "yay"
-        return
-    #If the word begins with a consonant, remove all the consonants from beginning up to the first vowel and append them to the end of the word. Then append "ay" to end.
-    #create index with a starting position of 0.
-    index = 0
-    #create store variable with no content; used to capture consonants and store for later use
-    store = ""
-    #loop through every character in the word.
-    for character in word:
-      if character.upper() not in ["A", "E", "I", "O", "U"]:
-        store = store + character
-      else:
-        break #if character is not a vowel, else means if it is a vowel then the break stops it
+    """
+    Translate an English word into Pig Latin.
 
-    index += 1
-    #the new word is created by finding the position up to the the first vowel, adding the stored characters to the end, then adding "ay".
-    new_word = word[index:] + store + "ay"
-    print new_word
+    :param word: a word
+    :return: the resulting word in Pig Latin
+    :raises: MismatchedAttributesException:
+    """
 
-#Have user enter word to translate.
+    vowels = ["A", "E", "I", "O", "U"]
+
+    # If a word begins with a vowel, append "yay" to the end of the word.
+    if word[0].upper() in vowels:
+        new_word = word + "yay"
+        print new_word.lower()
+        return new_word.lower()
+
+    # If the word begins with a consonant, remove all the consonants from beginning up to the first vowel
+    # Then append them to the end of the word, followed by "ay"
+    else:
+        # Create prefix variable to capture consonants and store for later use
+        prefix = ""
+        # Loop through every character in the word until encounter vowel, then stop looping
+        while word[0].upper() not in vowels:
+            prefix += word[0]
+            word = word[1:len(word)]
+
+    new_word = word + prefix + "ay"
+    print new_word.lower()
+    return new_word.lower()
+
+# Have user enter word to translate.
 pig_latinify(raw_input("Enter a word to translate into Pig Latin: "))
-
-
