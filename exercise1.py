@@ -39,8 +39,7 @@ def pig_latinify(word):
             word = word[1:len(word)]
 
     new_word = word + prefix + "ay"
-    print new_word.lower()
     return new_word.lower()
 
 # Have user enter word to translate.
-pig_latinify(raw_input("Enter a word to translate into Pig Latin: "))
+pig_latinify("Shiny")

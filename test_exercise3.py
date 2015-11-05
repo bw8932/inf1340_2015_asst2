@@ -27,6 +27,10 @@ MANAGERS = [["Number", "Surname", "Age"],
             [7432, "O'Malley", 39],
             [9824, "Darkes", 38]]
 
+PETS = [["Name", "Age, Type"],
+        ["Mr. Woofs", 4, "Dog"],
+        ["Socks", 12, "Cat"]]
+
 
 #####################
 # HELPER FUNCTIONS ##
