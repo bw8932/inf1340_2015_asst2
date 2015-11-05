@@ -84,8 +84,7 @@ def intersection(table1, table2):
         for index in range(len(table1)):
             if table1[index] in table2:
                 table3.append(table1[index])
-        return [table3]
-
+        return table3
     # For schema that don't match, raise error.
     else:
         raise MismatchedAttributesException
@@ -113,7 +112,8 @@ def difference(table1, table2):
         for index in range(len(table1)):
             if table1[index] not in table2:
                 table3.append(table1[index])
-        return [table3]
+        print table3
+        return table3
 
     # For schema that don't match, raise error.
     else:
