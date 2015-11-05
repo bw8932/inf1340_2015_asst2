@@ -90,7 +90,7 @@ def test_union():
 # Test a union of a table with itself.
     assert is_equal(result4, union(MANAGERS, MANAGERS))
 
-# Test a union of non-matching schema
+# Test a union of non-matching schema.
     try:
        union(MANAGERS, PETS)
     except MismatchedAttributesException:
@@ -129,6 +129,12 @@ def test_intersection():
 # Test an intersection of a table with itself.
     assert is_equal(result4, union(MANAGERS, MANAGERS))
 
+# Test an intersection of non-matching schema.
+    try:
+        intersection(MANAGERS, PETS)
+    except MismatchedAttributesException:
+        assert True
+
 def test_difference():
     """
     Test difference operation.
@@ -157,3 +163,9 @@ def test_difference():
 
 # Test a difference of a table with itself.
     assert is_equal(result4, difference(MANAGERS, MANAGERS))
+
+# Test a difference of non-matching schema.
+    try:
+        difference(MANAGERS, PETS)
+    except MismatchedAttributesException:
+        assert True

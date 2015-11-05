@@ -42,8 +42,4 @@ def pig_latinify(word):
     return new_word.lower()
 
 # Have user enter word to translate.
-pig_latinify("Shiny")
-
-
-
-#try sky?  skyay
+#pig_latinify("Egg")
