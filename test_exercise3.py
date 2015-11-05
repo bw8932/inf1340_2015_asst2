@@ -11,7 +11,7 @@ __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
-from exercise3 import union, intersection, difference
+from exercise3 import union, intersection, difference, MismatchedAttributesException
 
 
 ###########
@@ -67,12 +67,12 @@ def test_union():
                [9824, "Darkes", 38],
                [4444, "Johnson", 44]]
 
-    result3 = [["Number", "Surname", "Age"],
+    result4 = [["Number", "Surname", "Age"],
                [9297, "O'Malley", 56],
                [7432, "O'Malley", 39],
                [9824, "Darkes", 38]]
 
-    result4 = [["Name", "Age, Type"],
+    result3 = [["Name", "Age, Type"],
                 ["Mr. Woofs", 4, "Dog"],
                 ["Socks", 12, "Cat"],
                 ["Wilbur", 5, "Pig"],
@@ -84,17 +84,17 @@ def test_union():
 # Test a second regular union with matching schema, in case the first worked by coincidence.
     assert is_equal(result2, union(MANAGERS, STAFF))
 
-# Test a union of a table with itself.
-    assert is_equal(result3, union(MANAGERS, MANAGERS))
-
 # Test a union of two completely other tables with matching schema.
-    assert is_equal(result4, union(PETS, LIVESTOCK))
+    assert is_equal(result3, union(PETS, LIVESTOCK))
+
+# Test a union of a table with itself.
+    assert is_equal(result4, union(MANAGERS, MANAGERS))
 
 # Test a union of non-matching schema
-    #try:
-       # union(MANAGERS, PETS)
-   # except MismatchedAttributesException:
-     #   assert True
+    try:
+       union(MANAGERS, PETS)
+    except MismatchedAttributesException:
+        assert True
 
 
 def test_intersection():
@@ -105,7 +105,29 @@ def test_intersection():
               [7432, "O'Malley", 39],
               [9824, "Darkes", 38]]
 
+    result2 = [["Number", "Surname", "Age"],
+               [7432, "O'Malley", 39]]
+
+    result3 = [["Name", "Age, Type"],
+               ["Socks", 12, "Cat"]]
+
+    result4 = [["Number", "Surname", "Age"],
+                [9297, "O'Malley", 56],
+                [7432, "O'Malley", 39],
+                [9824, "Darkes", 38]]
+
+
+# Test a regular intersection with matching schema.
     assert is_equal(result, intersection(GRADUATES, MANAGERS))
+
+# Test a second regular intersection with matching schema, in case the first worked by coincidence.
+    assert is_equal(result2, intersection(MANAGERS, STAFF))
+
+# Test an intersection of two completely other tables with matching schema.
+    assert is_equal(result3, intersection(PETS, LIVESTOCK))
+
+# Test an intersection of a table with itself.
+    assert is_equal(result4, union(MANAGERS, MANAGERS))
 
 def test_difference():
     """
@@ -115,4 +137,23 @@ def test_difference():
     result = [["Number", "Surname", "Age"],
               [7274, "Robinson", 37]]
 
+    result2 = [["Number", "Surname", "Age"],
+               [9297, "O'Malley", 56],
+               [9824, "Darkes", 38]]
+
+    result3 = [["Name", "Age, Type"],
+               ["Mr. Woofs", 4, "Dog"]]
+
+    result4 = [["Number", "Surname", "Age"]]
+
+# Test a regular difference with matching schema.
     assert is_equal(result, difference(GRADUATES, MANAGERS))
+
+# Test a second regular difference with matching schema, in case the first worked by coincidence.
+    assert is_equal(result2, difference(MANAGERS, STAFF))
+
+# Test a difference of two completely other tables with matching schema.
+    assert is_equal(result3, difference(PETS, LIVESTOCK))
+
+# Test a difference of a table with itself.
+    assert is_equal(result4, difference(MANAGERS, MANAGERS))

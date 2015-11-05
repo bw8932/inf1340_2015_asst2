@@ -119,7 +119,7 @@ def difference(table1, table2):
     else:
         raise MismatchedAttributesException
 
-#difference(GRADUATES, MANAGERS)
+difference(GRADUATES, MANAGERS)
 
 
 

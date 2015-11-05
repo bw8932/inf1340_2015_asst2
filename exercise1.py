@@ -43,3 +43,7 @@ def pig_latinify(word):
 
 # Have user enter word to translate.
 pig_latinify("Shiny")
+
+
+
+#try sky?  skyay
