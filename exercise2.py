@@ -34,24 +34,48 @@ __license__ = "MIT License"
     #String will contain digits representing the integer indices.
     #If substring not found an empty string returned.
 
-input_string = raw_input("Enter DNA sequence: ")
-substring = raw_input("Enter substring: ")
 
-def find_string():
-    index = 0
-    if substring.upper() in input_string.upper():
-        print substring, "found within", input_string
-    else:
-        print substring, "not found within", input_string
-find_string()
+def find(input_string, substring, start, end):
+    """
+    Find the first instance of a substring within a string in a specific range; return the index of the substring.
 
-def find_string_2():
-   index = 0
-   while index < len(input_string):
-        index = input_string.find(substring, index)
-        if index == -1:
-            break
-        print substring, "found at", index
+    :param input_string: a longer string in which you wish to find a substring
+    :param substring: the string you wish to find
+    :param start: an integer - the first index at which to seek the substring in the input_string
+    :param end: an integer - the last index a which to seek the substring in the input_string
+    :return: index at which the substring is found in the larger string
+    """
+
+    # Set index to start to give initial index point.
+    index = start
+    # Define found marker's base state.
+    found = 0
+    # Loop through a series of slices of the input_string, checking each against the substring for a match.
+    for input_slice in input_string[start:end]:
+        input_slice = input_string[index:index + len(substring)]
         index += 1
+        # If substring found, change found marker to 1 and return the index
+        if input_slice == substring:
+            found = 1
+            print (index - 1)
+            return (index - 1)
 
-find_string_2()
+
+    # If function completes loop with found marker in base state, means no match; return -1.
+    if found == 0:
+        print -1
+        return -1
+# Will not work if index is above length of
+find("012345678989", "8a", 0, 11)
+
+
+def multi_find(input_string, substring, start, end):
+    """
+    Find the all instances of a substring within a string in a specific range; return the index of the substring.
+
+    :param input_string: a longer string in which you wish to find a substring
+    :param substring: the string you wish to find
+    :param start: an integer - the first index at which to seek the substring in the input_string
+    :param end: an integer - the last index a which to seek the substring in the input_string
+    :return: index at which the substring is found in the larger string
+    """

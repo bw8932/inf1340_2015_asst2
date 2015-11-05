@@ -20,6 +20,8 @@ def test_find_basic():
     """
     assert find("This is an ex-parrot", "parrot", 0, 20) == 14
 
+    assert find("0123456789", "89", 0, 10) == 8
+
 
 def test_multi_find_basic():
     """
