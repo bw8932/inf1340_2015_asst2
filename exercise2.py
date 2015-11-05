@@ -51,8 +51,7 @@ def find_string_2():
         index = input_string.find(substring, index)
         if index == -1:
             break
-        index += 1
         print substring, "found at", index
-find_string_2()
+        index += 1
 
-#For some reason the index is off by +1, if the actual position is 0 it shows 1, if 6 then 7. Need to fix..
+find_string_2()
