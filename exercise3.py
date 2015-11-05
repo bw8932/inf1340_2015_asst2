@@ -10,11 +10,6 @@ __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
-#REMOVE THESE BEFORE SUBMITTING, ALONG WITH THE COMMENTED OUT FUNCTION CALLS
-GRADUATES = [["Number", "Surname", "Age"], [7274, "Robinson", 37], [7432, "O'Malley", 39], [9824, "Darkes", 38]]
-
-MANAGERS = [["Number", "Surname", "Age"], [9297, "O'Malley", 56], [7432, "O'Malley", 39], [9824, "Darkes", 38], [3, "ekj", 5]]
-
 
 #####################
 # HELPER FUNCTIONS ##
@@ -63,7 +58,6 @@ def union(table1, table2):
     # If the schema don't match, raise error.
     else:
         raise MismatchedAttributesException
-#union(GRADUATES, MANAGERS)
 
 
 def intersection(table1, table2):
@@ -88,8 +82,6 @@ def intersection(table1, table2):
     # For schema that don't match, raise error.
     else:
         raise MismatchedAttributesException
-
-#intersection(GRADUATES, MANAGERS)
 
 
 def difference(table1, table2):
@@ -118,10 +110,3 @@ def difference(table1, table2):
     # For schema that don't match, raise error.
     else:
         raise MismatchedAttributesException
-
-difference(GRADUATES, MANAGERS)
-
-
-
-
-

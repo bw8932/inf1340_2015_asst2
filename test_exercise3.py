@@ -84,7 +84,7 @@ def test_union():
 # Test a second regular union with matching schema, in case the first worked by coincidence.
     assert is_equal(result2, union(MANAGERS, STAFF))
 
-# Test a union of two completely other tables with matching schema.
+# Test a union of two other tables with matching schema.
     assert is_equal(result3, union(PETS, LIVESTOCK))
 
 # Test a union of a table with itself.
@@ -123,7 +123,7 @@ def test_intersection():
 # Test a second regular intersection with matching schema, in case the first worked by coincidence.
     assert is_equal(result2, intersection(MANAGERS, STAFF))
 
-# Test an intersection of two completely other tables with matching schema.
+# Test an intersection of two other tables with matching schema.
     assert is_equal(result3, intersection(PETS, LIVESTOCK))
 
 # Test an intersection of a table with itself.
@@ -158,7 +158,7 @@ def test_difference():
 # Test a second regular difference with matching schema, in case the first worked by coincidence.
     assert is_equal(result2, difference(MANAGERS, STAFF))
 
-# Test a difference of two completely other tables with matching schema.
+# Test a difference of two other tables with matching schema.
     assert is_equal(result3, difference(PETS, LIVESTOCK))
 
 # Test a difference of a table with itself.

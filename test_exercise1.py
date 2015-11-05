@@ -24,11 +24,13 @@ def test_basic():
     assert pig_latinify("is") == "isyay"
     assert pig_latinify("apple") == "appleyay"
 
+
 def test_additional():
     """
-    Additional test cases we added ourselves, including variety of capitalization styles.
+    Additional test cases we added ourselves, including variety of words and capitalization styles.
     """
     assert pig_latinify("eggplant") == "eggplantyay"
     assert pig_latinify("Shelter") == "eltershay"
     assert pig_latinify("STROBE") == "obestray"
     assert pig_latinify("so") == "osay"
+    assert pig_latinify("Grobarts") == "obartsgray"
